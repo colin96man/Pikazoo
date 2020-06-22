@@ -1,5 +1,13 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
+from django.models import Profile
+import os
+import petpy
+from petpy import Petfinder
+
+key = os.environ['API_KEY']
+secret = os.environ['API_SECRET']
+pf = Petfinder(key, secret)
 
 # Create your views here.
 def home(request):
@@ -29,3 +37,8 @@ def signup(request):
 
 def user_setup(request):
     return render(request, 'user/setup.html')
+
+def get_state_organizations(request):
+    state_organizations = pf.organizations(state=f'{Profile.location}')
+    print(state_oranizations)
+    return render(request, 'rescues/index.html', { 'state_organizations': state_organizations })

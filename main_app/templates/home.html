@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<a href="//imgur.com/a/o5abhxG"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script><a href="{% url 'signup' %}" class="btn btn-outline-primary">Sign Up</a>
-<a href="{% url 'login' %}"class="btn btn-outline-primary">Log In</a>
+<div class="homepageBtns">
+    <a href="{% url 'login' %}"class="btn btn-outline-primary">Log In</a>
+    <a href="{% url 'signup' %}"class="btn btn-outline-primary">Sign Up</a>
+</div>
 
 {% endblock %}

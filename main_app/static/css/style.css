@@ -1,3 +1,23 @@
 body {
-color: red;
+color: #595A4A;
   }
+
+.homepageBtns {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.btn-outline-primary {
+  color: #595A4A;
+  border-color: #595A4A;
+}
+
+a {
+  background-color: #595A4A;
+  border: solid .5px white;
+  text-decoration: none;
+  color: white;
+  padding: 8px;
+  display: flex;
+}

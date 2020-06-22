@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -17,12 +18,10 @@ def signup(request):
     form = UserCreationForm(request.POST)
     if form.is_valid():
       user = form.save()
-      #This is how we programmatically login
       login(request, user)
       return redirect('setup')
     else:
       error_message = 'Invalid sign up - try again!'
-  # A bad POST or it's a GET
   form = UserCreationForm()
   context = {
     'form': form,

@@ -1,9 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<h1>PIKAZOO</h1>
-
-<a href="{% url 'signup' %}" class="btn btn-outline-primary">Sign Up</a>
-<a href="{% url 'login' %}"class="btn btn-outline-primary">Log In</a>
+<div class="homepageBtns">
+    <a href="{% url 'login' %}"class="btn btn-outline-primary">Log In</a>
+    <a href="{% url 'signup' %}"class="btn btn-outline-primary">Sign Up</a>
+</div>
 
 {% endblock %}

@@ -16,7 +16,7 @@ def signup(request):
       user = form.save()
       #This is how we programmatically login
       login(request, user)
-      return redirect('index')
+      return redirect('setup')
     else:
       error_message = 'Invalid sign up - try again!'
   # A bad POST or it's a GET
@@ -26,3 +26,6 @@ def signup(request):
     'error_message': error_message
   }
   return render(request, 'registration/signup.html', context)
+
+def user_setup(request):
+    return render(request, 'user/setup.html')

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
-from django.models import Profile
+from .models import Profile
 import os
 import petpy
 from petpy import Petfinder

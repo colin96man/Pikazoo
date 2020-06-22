@@ -2,14 +2,6 @@ from django.db import models
 from datetime import date
 from django.contrib.auth.models import User
 
-import petpy
-import os
-from petpy import Petfinder
-
-key = os.environ['API_KEY']
-secret = os.environ['API_SECRET']
-pf = Petfinder(key, secret)
-
 # Create your models here.
 
 ACTIVITIES = (

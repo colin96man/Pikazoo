@@ -4,6 +4,13 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Profile
+import os
+import petpy
+from petpy import Petfinder
+
+key = os.environ['API_KEY']
+secret = os.environ['API_SECRET']
+pf = Petfinder(key, secret)
 
 # Create your views here.
 def home(request):
@@ -39,4 +46,11 @@ class ProfileCreate(CreateView, LoginRequiredMixin):
 
     def get_initial(self):
       return { 'user': self.request.user }
-      
+
+def get_state_organizations(request):
+    state_organizations = pf.organizations(state=f'{Profile.location}')
+    print(state_oranizations)
+    return render(request, 'rescues/index.html', { 'state_organizations': state_organizations })
+
+def get_animals(request, organization_id):
+    pass

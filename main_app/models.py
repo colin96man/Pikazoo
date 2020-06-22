@@ -1,7 +1,6 @@
 from django.db import models
 from datetime import date
 from django.contrib.auth.models import User
-from django.contrib.localflavor.us.us_states import STATE_CHOICES
 
 import petpy
 import os
@@ -33,16 +32,12 @@ ANIMAL_TYPES = (
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    location = models.CharField(
-        max_length=2,
-        choices=STATE_CHOICES
-    )
+    location = models.CharField(max_length=2)
     pet_preference = models.CharField(
         max_length=100,
         choices=ANIMAL_TYPES,
         default=ANIMAL_TYPES[0][0]
     )
-
 
 
 

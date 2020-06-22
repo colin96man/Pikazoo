@@ -42,3 +42,6 @@ def get_state_organizations(request):
     state_organizations = pf.organizations(state=f'{Profile.location}')
     print(state_oranizations)
     return render(request, 'rescues/index.html', { 'state_organizations': state_organizations })
+
+def get_animals(request, organization_id):
+    pass

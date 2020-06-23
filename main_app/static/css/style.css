@@ -37,6 +37,10 @@ a {
   display: flex;
 }
 
+nav ul a {
+  color: #595A4A;
+}
+
 nav .sidenav-trigger {
   color: #595A4A;
 }

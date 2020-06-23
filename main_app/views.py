@@ -26,7 +26,7 @@ def signup(request):
     if form.is_valid():
       user = form.save()
       login(request, user)
-      return redirect('setup')
+      return redirect('profile_create')
     else:
       error_message = 'Invalid sign up - try again!'
   form = UserCreationForm()
@@ -35,9 +35,6 @@ def signup(request):
     'error_message': error_message
   }
   return render(request, 'registration/signup.html', context)
-
-def user_setup(request):
-    return render(request, 'user/setup.html')
 
 class ProfileCreate(CreateView, LoginRequiredMixin):
     model = Profile

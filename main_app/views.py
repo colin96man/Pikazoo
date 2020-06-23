@@ -42,7 +42,7 @@ def signup(request):
 class ProfileUpdate(UpdateView):
     model = Profile
     fields = ['location', 'pet_preference']
-    success_url = '/rescues/'
+    success_url = '/rescues/index.html'
 
 def get_state_organizations(request):
     state_organizations = pf.organizations(state=f'{Profile.location}')

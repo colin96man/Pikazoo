@@ -21,6 +21,7 @@
                     <li><a href="{% url 'about' %}">About</a></li>
                     {% if user.is_authenticated %}
                     <li><a href="{% url 'profile_update' user.id %}">Profile</a></li>
+                    <li><a href="{% url 'index' %}">Rescues</a></li>
                     <li><a href="{% url 'logout' %}">Log Out</a></li>
                     {% else %}
                     <li><a href="{% url 'signup' %}">Sign Up</a></li>
@@ -29,26 +30,25 @@
                 </ul>
             </div>
         </nav>
-        
-        <ul class="sidenav" id="mobile">
-            <li><a href="{% url 'about' %}">About</a></li>
-            {% if user.is_authenticated %}
-            <li><a href="{% url 'profile_create' %}">Profile</a></li>
-            <li><a href="{% url 'logout' %}">Log Out</a></li>
-            {% else %}
-            <li><a href="{% url 'signup' %}">Sign Up</a></li>
-            <li><a href="{% url 'login' %}">Log In</a></li>
-            {% endif %}
-        </ul>
-        
+        </header>
+<ul class="sidenav" id="mobile">
+    <li><a href="{% url 'about' %}">About</a></li>
+    {% if user.is_authenticated %}
+    <li><a href="{% url 'profile_update' user.id %}">Profile</a></li>
+    <li><a href="{% url 'index' %}">Rescues</a></li>
+    <li><a href="{% url 'logout' %}">Log Out</a></li>
+    {% else %}
+    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+    <li><a href="{% url 'login' %}">Log In</a></li>
+    {% endif %}
+</ul>     
     <script language="javascript">
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.sidenav');
             var instances = M.Sidenav.init(elems);
           });
     </script>
-    
-    </header>
+
 <main class="container">
     {% block content %}
     {% endblock %}

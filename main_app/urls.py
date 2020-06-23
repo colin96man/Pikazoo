@@ -9,4 +9,6 @@ urlpatterns = [
     path('setup/', views.user_setup, name='setup'),
     path('profile/create/', views.ProfileCreate.as_view(), name='profile_create'),
     path('rescues/', views.get_state_organizations, name='index'),
+    path('rescues/<int:organization_id>/', views.get_animals, name='rescue_detail'),
+    path('animals/<int:animal_id>/', views.get_animal_details, name='animal_details'),
 ]

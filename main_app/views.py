@@ -48,9 +48,14 @@ class ProfileCreate(CreateView, LoginRequiredMixin):
       return { 'user': self.request.user }
 
 def get_state_organizations(request):
-    state_organizations = pf.organizations(state=f'{Profile.location}')
+    profile = Profile_id
+    profile_location = Profile.location
+    state_organizations = pf.organizations(state=f'{profile.profile_location}')
     print(state_oranizations)
     return render(request, 'rescues/index.html', { 'state_organizations': state_organizations })
 
 def get_animals(request, organization_id):
+    pass
+
+def get_animal_details(request, animal_id):
     pass

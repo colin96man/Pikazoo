@@ -3,4 +3,10 @@
 
 <h1>Rescue Organizations In Your State</h1>
 
+<ul>
+    {% for state_organizations in state_organizations.organizations %}
+        <li>{{ state_organizations.name }}</li>
+    {% endfor %}
+</ul>
+
 {% endblock %}

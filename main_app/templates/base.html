@@ -22,7 +22,7 @@
             <div class="collapse" id="navbarToggleExternalContent">
                 <a href="{% url 'about' %}">About</a>
                 {% if user.is_authenticated %}
-                <a href="{% url 'profile_create' %}">Profile</a>
+                <a href="{% url 'profile_update' user.id %}">Profile</a>
                 <a href="{% url 'logout' %}">Log Out</a>
                 {% else %}
                 <a href="{% url 'signup' %}">Sign Up</a>

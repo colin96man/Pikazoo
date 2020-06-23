@@ -6,7 +6,7 @@
 {% if object %}
 <h1>Edit <span class="teal-text">{{object.name}}</span></h1>
 {% else %}
-    <h1>Set up your profile</h1>
+    <h3>Set up your profile</h3>
 {% endif %}
 
 <form action="" method="post">
@@ -14,7 +14,7 @@
     <table>
         {{ form.as_table }}
     </table>
-    <input type="submit" value="Submit!" class="btn">
+    <input type="submit" value="Submit!" class="btn btn-outline-primary">
 </form>
 
 {% endblock %}

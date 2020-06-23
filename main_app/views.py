@@ -38,9 +38,6 @@ def signup(request):
   }
   return render(request, 'registration/signup.html', context)
 
-def user_setup(request):
-    return render(request, 'user/setup.html')
-
 class ProfileUpdate(UpdateView):
     model = Profile
     fields = ['location', 'pet_preference']

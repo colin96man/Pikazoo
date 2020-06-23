@@ -123,5 +123,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = '/setup/'
+LOGIN_REDIRECT_URL = '/profile/<int:pk>/update/'
 LOGOUT_REDIRECT_URL = '/'

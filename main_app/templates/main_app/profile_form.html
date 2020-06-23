@@ -4,17 +4,16 @@
 <h1>{{ user.username }}</h1>
 
 {% if object %}
-<h1>Edit <span class="teal-text">{{object.name}}</span></h1>
+<h1>Edit <span>{{object.name}}</span></h1>
 {% else %}
-    <h1>Set up your profile</h1>
+    <h3>Set up your profile</h3>
 {% endif %}
-
 <form action="" method="post">
     {% csrf_token %}
     <table>
         {{ form.as_table }}
     </table>
-    <input type="submit" value="Submit!" class="btn">
+    <input type="submit" value="Update" class="btn btn-outline-primary">
 </form>
 
 {% endblock %}

@@ -30,7 +30,7 @@ class Profile(models.Model):
         choices=ANIMAL_TYPES,
         default=ANIMAL_TYPES[0][0]
     )
-
+    
 
 
 class Playdate(models.Model):

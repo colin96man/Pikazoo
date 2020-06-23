@@ -26,9 +26,10 @@ def signup(request):
     form = UserCreationForm(request.POST)
     if form.is_valid():
       user = form.save()
-      profile = Profile.objects.get_or_create(user=user)
+      profile = Profile.objects.create(id=user.id, user=user)
+      profile.save()
       login(request, user)
-      return redirect(f'/profile/{user.id}/update/')
+      return redirect(f'/profile/{profile.id}/update/')
     else:
       error_message = 'Invalid sign up - try again!'
   form = UserCreationForm()

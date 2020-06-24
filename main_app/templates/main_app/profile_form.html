@@ -1,14 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>{{ user.username }}</h1>
-
 {% if object %}
-<h1>Edit <span>{{object.name}}</span></h1>
+<h1>Edit <span>{{object.user.username}}</span></h1>
 {% else %}
     <h3>Set up your profile</h3>
 {% endif %}
-<form action="{% url 'index' %}" method="post">
+<form action="" method="post">
     <table>
     {% csrf_token %}
     {{ form.as_table }}

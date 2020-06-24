@@ -9,11 +9,15 @@
     <h3>Set up your profile</h3>
 {% endif %}
 <form action="{% url 'index' %}" method="post">
-    {% csrf_token %}
     <table>
-        {{ form.as_table }}
+    {% csrf_token %}
+    {{ form.as_table }}
     </table>
-    <input type="submit" value="Update" class="btn btn-outline-primary">
+    <input type="submit" value="Update" class="btn">
 </form>
+<script>
+    document.getElementById('id_location').style.display = 'block';
+    document.getElementById('id_pet_preference').style.display = 'block';
+</script>
 
 {% endblock %}

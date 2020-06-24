@@ -5,7 +5,7 @@
 
 <ul>
     {% for state_organizations in state_organizations.organizations %}
-        <li><a href="/rescues/{{ state_organizations.id }}/detail/">{{ state_organizations.id }}</a></li>
+        <li><a href="/rescues/{{ state_organizations.id }}/detail/">{{ state_organizations.name }}</a></li>
     {% endfor %}
 </ul>
 

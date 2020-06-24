@@ -18,7 +18,9 @@ def home(request):
   return render(request, 'home.html')
 
 def about(request):
-  return render(request, 'about.html')
+  profile = Profile.objects.get(id=request.user.id)
+  print(profile)
+  return render(request, 'about.html', { 'profile': profile })
 
 def signup(request):
   error_message = ''
@@ -42,6 +44,7 @@ def signup(request):
 class ProfileUpdate(UpdateView):
     model = Profile
     fields = ['location', 'pet_preference']
+    success_url = '/animals/'
 
 def get_state_organizations(request):
     profile = Profile.objects.get(id=request.user.id)

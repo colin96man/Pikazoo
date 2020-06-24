@@ -46,24 +46,9 @@ class ProfileUpdate(UpdateView):
 
 def get_state_organizations(request):
     profile = Profile.objects.get(id=request.user.id)
-    state_organizations = pf.organizations(state=f'{profile.location}')
+    state_organizations = pf.organizations(state=f'{profile.location}', results_per_page=40)
     print(state_organizations)
     return render(request, 'rescues/index.html', { 'state_organizations': state_organizations })
-
-def get_animals(request, organization_id):
-    # organization_animals = []
-    profile = Profile.objects.get(id=request.user.id)
-    organization = organization_id
-    animals = pf.animals(animal_type=f'{profile.pet_preference}')
-    # organization_filter = animals.animals.
-    organization_animals = [animal['organization_id'] == organization_id for animal in animals['animals']]
-    print(profile.pet_preference)
-    print(type(organization_id))
-    print(type(organization))
-    print(organization_id)
-    print(organization_animals)
-    print(animals)
-    return render(request, 'rescues/rescue_detail.html', { 'organization_animals': organization_animals, 'organization_id': organization_id })
 
 def get_animal_details(request, animal_id):
     pass

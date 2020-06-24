@@ -18,7 +18,12 @@ nav{
 
 
 .homepageBtns {
- margin: 20px;
+display: block;
+margin: auto;
+position: relative;
+width: 80%;
+text-align: center;
+margin-top: 80%;
 }
 
 .btn {
@@ -58,4 +63,18 @@ main {
 footer.page-footer {
   padding-top: 0;
   text-align: right;
+}
+
+a.btn {
+  color: pink;
+}
+
+@media only screen and (min-width: 993px) {
+.homepageBtns {
+  width: 35%;
+  display: inherit;
+  justify-content: center;
+  margin-top: 41%;
+}
+
 }

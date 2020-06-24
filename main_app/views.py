@@ -42,10 +42,11 @@ def signup(request):
 class ProfileUpdate(UpdateView):
     model = Profile
     fields = ['location', 'pet_preference']
-    success_url = '/rescues/index.html'
 
 def get_state_organizations(request):
     profile = Profile.objects.get(id=request.user.id)
+    print(profile.location, "PROFILE")
+    print('this is what we are looking at', profile.pet_preference)
     state_organizations = pf.organizations(state=f'{profile.location}')
     return render(request, 'rescues/index.html', { 'state_organizations': state_organizations })
 

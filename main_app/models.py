@@ -31,8 +31,6 @@ class Profile(models.Model):
         default=ANIMAL_TYPES[0][0]
     )
     
-
-
 class Playdate(models.Model):
     animal_id = models.IntegerField()
     shelter_id = models.CharField(max_length=100)

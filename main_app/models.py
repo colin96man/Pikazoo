@@ -24,7 +24,7 @@ ANIMAL_TYPES = (
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    location = models.CharField(max_length=2)
+    location = models.CharField(max_length=10)
     pet_preference = models.CharField(
         max_length=100,
         choices=ANIMAL_TYPES,

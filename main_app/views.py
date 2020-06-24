@@ -50,12 +50,13 @@ def get_state_organizations(request):
     state_organizations = pf.organizations(state=f'{profile.location}')
     return render(request, 'rescues/index.html', { 'state_organizations': state_organizations })
 
-
-def get_animals(request, organization_id):
+def get_some_animals(request):
     profile = Profile.objects.get(id=request.user.id)
-    organization_animals = pf.animals(organization_id=organization_id, animal_type=f'{profile.pet_preference}')
-    print(organization_animals)
-    return render(request, 'rescues/rescue_detail.html') #{ 'organization_animals': organization_animals })
+    print(profile.location)
+    print(profile.pet_preference)
+    all_animals = pf.animals(animal_type=f'{profile.pet_preference}', status='adoptable', location=f'{profile.location}', sort='distance')
+    print(all_animals)
+    return render(request, 'animals/index.html', { 'all_animals': all_animals })
 
 def get_animal_details(request, animal_id):
     pass

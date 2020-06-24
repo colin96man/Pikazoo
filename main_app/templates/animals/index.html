@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Animals Near You</h1>
+
+<ul>
+    {% for animal in all_animals.animals %}
+        <li><img src="{{ animal.primary_photo_cropped.small }}" alt="">{{ animal.name }}, {{ animal.contact.address.city }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

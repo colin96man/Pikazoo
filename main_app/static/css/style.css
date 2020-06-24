@@ -3,7 +3,8 @@ color: #595A4A;
   }
 
 nav{
-  background-color: #595A4A;
+  background-color: white;
+  -webkit-box-shadow: none;
 }
 
 .sidenav {
@@ -14,6 +15,7 @@ nav{
 .sidenav li>a {
   color: white;
 }
+
 
 .homepageBtns {
  margin: 20px;
@@ -26,14 +28,21 @@ nav{
   border: #595A4A solid .3px;
   background-color: white;
   color: #595A4A;
+  box-shadow: none;
 }
 
 a {
-  background-color: #595A4A;
   text-decoration: none;
-  color: white;
-  padding: 8px;
+  color: #595A4A;
   display: flex;
+}
+
+nav ul a {
+  color: #595A4A;
+}
+
+nav .sidenav-trigger {
+  color: #595A4A;
 }
 
 body {

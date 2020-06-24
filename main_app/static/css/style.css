@@ -3,7 +3,8 @@ color: #595A4A;
   }
 
 nav{
-  background-color: #595A4A;
+  background-color: white;
+  -webkit-box-shadow: none;
 }
 
 .sidenav {
@@ -15,8 +16,14 @@ nav{
   color: white;
 }
 
+
 .homepageBtns {
- margin: 20px;
+display: block;
+margin: auto;
+position: relative;
+width: 80%;
+text-align: center;
+margin-top: 80%;
 }
 
 .btn {
@@ -26,14 +33,21 @@ nav{
   border: #595A4A solid .3px;
   background-color: white;
   color: #595A4A;
+  box-shadow: none;
 }
 
 a {
-  background-color: #595A4A;
   text-decoration: none;
-  color: white;
-  padding: 8px;
+  color: #595A4A;
   display: flex;
+}
+
+nav ul a {
+  color: #595A4A;
+}
+
+nav .sidenav-trigger {
+  color: #595A4A;
 }
 
 body {
@@ -49,4 +63,18 @@ main {
 footer.page-footer {
   padding-top: 0;
   text-align: right;
+}
+
+a.btn {
+  color: pink;
+}
+
+@media only screen and (min-width: 993px) {
+.homepageBtns {
+  width: 35%;
+  display: inherit;
+  justify-content: center;
+  margin-top: 41%;
+}
+
 }

@@ -3,10 +3,8 @@
 
 <h1>Rescue Animals</h1>
 
-<ul>
-{% for organizations_animals in organization_animals.animals%}
-    <li>{{ organization_animals.name }}</li>
+{% for result in expectedresult %}
+        <li>{{ result.name }}</a></li>
 {% endfor %}
-</ul>
 
 {% endblock %}

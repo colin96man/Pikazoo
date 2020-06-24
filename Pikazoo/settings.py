@@ -123,7 +123,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = '/rescues/'
+LOGIN_REDIRECT_URL = '/animals/'
 LOGOUT_REDIRECT_URL = '/'
 
 import django_heroku

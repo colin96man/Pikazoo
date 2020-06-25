@@ -1,12 +1,35 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>ABOUT</h1>
-<p>
-    We realize that at times we are not always in the space to adopt another animal but that doesn't mean you can't help! 
+<div id="aboutslide" class="slider">
+    <ul id="slidecolor" class="slides">
+      <li>
+        <img class="aboutimg" src="https://imgur.com/vC4OwfX.jpg">
+        <div id="caption1" class="caption center-align">
+          <h4>We realize that at times we are not always in the space to adopt another animal but that doesn't mean you can't help! </h4>
+        </div>
+      </li>
+      <li>
+        <img class="aboutimg" src="https://imgur.com/j7L8eCM.jpg"> <!-- random image -->
+        <div id="caption2" class="caption left-align">
+          <h4> PikaZoo is space where you can create a profile to see near by animals currently in a shelter, set up appointments to have playdates with them. </h4>
+        </div>
+      </li>
+      <li>
+        <img class="aboutimg" src="https://imgur.com/acZhGTR.jpg"> <!-- random image -->
+        <div id="caption3" class="caption right-align">
+          <h4>And, MAYBE, just maybe you won't be able to say goodbye to your new bestie.</h4>
+        </div>
+      </li>
+    </ul>
+  </div>
 
-    We have created a space where you can create a profile to see near by animals currently in a shelter, set up appointments to have playdates with them. 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.slider');
+    var instances = M.Slider.init(elems)
+    });
+</script>
 
-    And, MAYBE, just maybe you won't be able to say goodbye to your new bestie.
-</p>
+       
 {% endblock %}

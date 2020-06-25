@@ -7,7 +7,3 @@ class PlaydateForm(ModelForm):
   class Meta:
     model = Playdate
     fields = ['date', 'activity']
-
-
-
-    

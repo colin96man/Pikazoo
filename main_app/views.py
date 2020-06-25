@@ -49,22 +49,16 @@ class ProfileUpdate(UpdateView):
 
 def get_state_organizations(request):
     profile = Profile.objects.get(id=request.user.id)
-    # print(profile.location, "PROFILE")
-    # print('this is what we are looking at', profile.pet_preference)
     state_organizations = pf.organizations(state=f'{profile.location}')
     return render(request, 'rescues/index.html', { 'state_organizations': state_organizations })
 
 def get_some_animals(request):
     profile = Profile.objects.get(id=request.user.id)
-    # print(profile.location)
-    # print(profile.pet_preference)
     all_animals = pf.animals(animal_type=f'{profile.pet_preference}', status='adoptable', location=f'{profile.location}', sort='distance')
-    # print(all_animals)
     return render(request, 'animals/index.html', { 'all_animals': all_animals })
 
 def get_animal_details(request, animal_id):
     one_animal = pf.animals(animal_id=animal_id)
-    print(one_animal)
     playdate_form = PlaydateForm()
     return render(request, 'animals/animals_detail.html', { 'one_animal': one_animal, 'playdate_form': playdate_form })
 
@@ -79,3 +73,8 @@ def add_playdate(request, animal_id):
     new_playdate.profile = profile
     new_playdate.save()
   return redirect('animal_details', animal_id=animal_id)
+
+def get_playdates(request):
+    profile = Profile.objects.get(id=request.user.id)
+    all_playdates = Playdate.objects.filter(profile=profile)
+    return render(request, 'playdates/index.html', { 'all_playdates': all_playdates })

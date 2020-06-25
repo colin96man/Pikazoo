@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Your Playdates</h1>
+
+{% for playdate in all_playdates %}
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ playdate.animal_id }}</span>
+            <p>Shelter: {{ playdate.shelter_id }}</p>
+            <p>Activity: {{ playdate.get_activity_display }}</p>
+            <p>Date: {{ playdate.date }}</p>
+        </div>
+    </div>
+{% endfor %}
+
+{% endblock %}

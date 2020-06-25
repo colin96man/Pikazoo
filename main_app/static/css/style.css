@@ -1,6 +1,10 @@
 body {
-color: #595A4A;
-  }
+  color: #595A4A;
+}
+
+.homecolor {
+  background-color: #595A4A;
+}
 
 nav{
   background-color: white;
@@ -17,21 +21,27 @@ nav{
 }
 
 .homepageBtns {
-display: block;
-margin: auto;
-position: relative;
-width: 80%;
-text-align: center;
-margin-top: 25%;
+  display: block;
+  margin: auto;
+  position: relative;
+  width: 80%;
+  text-align: center;
+  margin-top: 20%;
 }
+
+#homepagebtn:hover {
+  background-color: #E39774;
+  color: white;
+}
+
 .logo {
   display: flex;
   justify-content: center;
-  margin-top: 15%;
+  margin-top: 10%;
 }
 
 .logoimg {
-  max-width: 30%;
+  max-width: 50%;
 }
 
 .btn {
@@ -167,12 +177,57 @@ div.card {
   margin: 0 5%;
 }
 
+.btn2:hover {
+  background-color: #595A4A;
+  color: white;
+  border: #595A4A;
+}
+
+.datepicker-date-display {
+  background-color: white;
+  color: #E39774;
+}
+
+.datepicker-calendar-container {
+  background-color: #E39774;
+  color: white;
+}
+
+.datepicker-controls .select-month input {
+  color: white;
+}
+
+.datepicker-controls .select-year input {
+  color: white;
+}
+
+.datepicker-table td.is-selected {
+  background-color: #595A4A;
+  color: #fff;
+}
+
+.datepicker-cancel, .datepicker-clear, .datepicker-today, .datepicker-done {
+  color: white;
+}
+
+.datepicker-table abbr {
+  text-decoration: none;
+  color: white;
+}
+
+.datepicker-date-display .year-text {
+ color: #E39774;
+}
+
 @media only screen and (min-width: 993px) {
 .homepageBtns {
   width: 35%;
   display: inherit;
   justify-content: center;
-  margin-top: 20%;
+  margin-top: 5%;
 }
 
+.logoimg {
+  max-width: 40%;
+}
 }

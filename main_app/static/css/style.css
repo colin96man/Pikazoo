@@ -1,5 +1,6 @@
 body {
   color: #595A4A;
+  font-family: 'Barlow', sans-serif;
 }
 
 .homecolor {
@@ -9,6 +10,14 @@ body {
 nav{
   background-color: white;
   -webkit-box-shadow: none;
+}
+ 
+nav.scroll {
+  background-color: #E39774;
+  color: white;
+}
+nav ul a.scroll {
+  color: white;
 }
 
 .sidenav {
@@ -149,7 +158,7 @@ div.card {
 }
 
 #playdatecard {
-  border: solid 2px #595A4A;
+  border: solid 1px #595A4A;
 }
 
 .playdatebtns{
@@ -158,6 +167,7 @@ div.card {
 
 .playdateimg {
   width: 25%;
+  border-radius: 5px;
 }
 
 .playdateinfo{
@@ -173,8 +183,9 @@ div.card {
   color: #595A4A;
   box-shadow: none;
   display: flex;
-  padding: 10%;
+  padding: 7% 13% 0%;
   margin: 0 5%;
+}
 }
 
 .btn2:hover {
@@ -217,6 +228,24 @@ div.card {
 
 .datepicker-date-display .year-text {
  color: #E39774;
+}
+
+.slider .indicators .indicator-item.active {
+  background-color: #E39774;
+}
+
+nav ul a:hover {
+  background-color: #595A4A;
+  color: white;
+}
+
+#btn3 {
+  margin: 5% auto;
+}
+
+.card{
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 @media only screen and (min-width: 993px) {

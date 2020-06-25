@@ -93,9 +93,30 @@ div.card {
   color: white;
   border-radius: 0 0 5px 5px;
 }
+#slidecolor{
+  background-color: white;
+}
 #cardslide {
   height: 35%;
 }
+
+.aboutimg {
+  opacity: 45%;
+}
+#aboutslide {
+  margin-top: 20%;
+}
+#caption1 {
+  color: #595A4A;
+}
+#caption2 {
+  color: #595A4A;
+  ;
+}
+#caption3 {
+  color: #595A4A;
+}
+
 @media only screen and (min-width: 993px) {
 .homepageBtns {
   width: 35%;

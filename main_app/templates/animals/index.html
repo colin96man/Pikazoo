@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<h1>Animals Near You</h1>
-
-<ul>
+<h1>Animals near you</h1>
+<div class="row">
     {% for animal in all_animals.animals %}
-        <li><a href="{% url 'animal_details' animal.id %}"><img src="{{ animal.primary_photo_cropped.small }}" alt=""></a>{{ animal.name }}, {{ animal.contact.address.city }}</li>
+    <div class="col s6 m4 m2">
+      <div class="card">
+        <div class="card-image">
+            <a href="{% url 'animal_details' animal.id %}">
+            <img src="{{ animal.primary_photo_cropped.small }}" alt="" class="indeximg"></a>
+        </div>
+      </div>
+    </div>
     {% endfor %}
-</ul>
+  </div>
 
 {% endblock %}

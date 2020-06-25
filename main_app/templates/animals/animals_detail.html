@@ -16,6 +16,25 @@
     </div>
   </div>
 
-<a href=""class="btn">Book A Playdate</a>
+<h6>Schedule a Playdate with {{ one_animal.animals.name }}:</h2>
+
+<form action="{% url 'add_playdate' one_animal.animals.id %}" method="post">
+    {% csrf_token %}
+    {{ playdate_form.as_p }}
+    <input type="submit" class="btn" value="Book A Playdate">
+</form>
+
+<script>
+    var dateEl = document.getElementById('id_date');
+    M.Datepicker.init(dateEl, {
+        format: 'yyyy-mm-dd',
+        setDefaultDate: true,
+        defaultDate: new Date(),
+        autoClose: true
+    });
+    
+    var activityEl = document.getElementById('id_activity')
+    M.FormSelect.init(activityEl)
+</script>
 
 {% endblock %}

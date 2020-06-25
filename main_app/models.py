@@ -40,4 +40,4 @@ class Playdate(models.Model):
         choices=ACTIVITIES,
         default=ACTIVITIES[0][0]
     )
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)

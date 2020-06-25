@@ -10,4 +10,5 @@ urlpatterns = [
     path('rescues/', views.get_state_organizations, name='index'),
     path('animals/', views.get_some_animals, name='index'),
     path('animals/<int:animal_id>/', views.get_animal_details, name='animal_details'),
+    path('animals/<int:animal_id>/add_playdate/', views.add_playdate, name='add_playdate'),
 ]

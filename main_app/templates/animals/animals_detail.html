@@ -3,21 +3,30 @@
 
 <h1>Animal Details</h1>
 
-<form action="" method="post" id="id_date">
+<img src="{{ one_animal.animals.primary_photo_cropped.medium}}" alt=""> <br>
+Name: {{ one_animal.animals.name }}
+
+
+<h6>Schedule a Playdate with {{ one_animal.animals.name }}:</h2>
+
+<form action="{% url 'add_playdate' one_animal.animals.id %}" method="post">
     {% csrf_token %}
     {{ playdate_form.as_p }}
     <input type="submit" class="btn" value="Add Playdate">
 </form>
 
 <script>
-    // create a datepicker
     var dateEl = document.getElementById('id_date');
     M.Datepicker.init(dateEl, {
-      format: 'yyyy-mm-dd',
-      defaultDate: new Date(),
-      setDefaultDate: true,
-      autoClose: true
+        format: 'yyyy-mm-dd',
+        setDefaultDate: true,
+        defaultDate: new Date(),
+        autoClose: true
     });
+    
+    var activityEl = document.getElementById('id_activity')
+    M.FormSelect.init(activityEl)
 </script>
+
 
 {% endblock %}

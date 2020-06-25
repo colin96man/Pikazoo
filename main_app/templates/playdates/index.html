@@ -3,20 +3,38 @@
 
 <h1>Your Playdates</h1>
 
-<h2>Upcoming Playdates</h2>
+<h2>UPCOMING PLAYDATES</h2>
 {% for playdate in all_playdates %}
-
-    <div class="card">
-        <div class="card-content">
-            <span class="card-title">{{ names|get_item:playdate.id }}</span>
-                 <img src="{{ photos|get_item:playdate.id }}" alt="">
-            <p>Shelter: <a href=" {{ shelterlinks|get_item:playdate.id }}" target="_blank">{{ shelters|get_item:playdate.id }}</a></p>
-            <p>Activity: {{ playdate.get_activity_display }}</p>
-            <p>Date: {{ playdate.date }}</p>
-            <a href="{% url 'playdate_update' playdate.id %}" class="btn">Edit</a>
-            <a href="{% url 'playdate_delete' playdate.id %}" class="btn">Cancel</a>
+    {% if playdate.in_the_future %}
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">{{ names|get_item:playdate.id }}</span>
+                    <img src="{{ photos|get_item:playdate.id }}" alt="">
+                    <p>Shelter: <a href=" {{ shelterlinks|get_item:playdate.id }}" target="_blank">{{ shelters|get_item:playdate.id }}</a></p>
+                    <p>Activity: {{ playdate.get_activity_display }}</p>
+                    <p>Date: {{ playdate.date }}</p>
+                    <a href="{% url 'playdate_update' playdate.id %}" class="btn">Edit</a>
+                    <a href="{% url 'playdate_delete' playdate.id %}" class="btn">Cancel</a>
+                </div>
+            </div>
+    {% endif %}
+{% endfor %}
+    <hr>
+<h2>PAST PLAYDATES</h2>
+{% for playdate in all_playdates %}
+    {% if playdate.in_the_future == False %}
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">{{ names|get_item:playdate.id }}</span>
+                <img src="{{ photos|get_item:playdate.id }}" alt="">
+                <p>Shelter: <a href=" {{ shelterlinks|get_item:playdate.id }}" target="_blank">{{ shelters|get_item:playdate.id }}</a></p>
+                <p>Activity: {{ playdate.get_activity_display }}</p>
+                <p>Date: {{ playdate.date }}</p>
+                <a href="{% url 'playdate_update' playdate.id %}" class="btn">Edit</a>
+                <a href="{% url 'playdate_delete' playdate.id %}" class="btn">Cancel</a>
+            </div>
         </div>
-    </div>
+    {% endif %}
 
 {% endfor %}
 

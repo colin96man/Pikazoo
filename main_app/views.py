@@ -58,13 +58,8 @@ def get_state_organizations(request):
 @login_required
 def get_some_animals(request):
     profile = Profile.objects.get(id=request.user.id)
-<<<<<<< HEAD
     all_animals = pf.animals(animal_type=f'{profile.pet_preference}', status='adoptable', location=f'{profile.location}', sort='distance', distance=500, results_per_page=60)
     return render(request, 'animals/index.html', { 'all_animals': all_animals })
-=======
-    all_animals = pf.animals(animal_type=f'{profile.pet_preference}', status='adoptable', location=f'{profile.location}', sort='distance', distance=500, results_per_page=60)    
-    return render(request, 'animals/index.html', { 'all_animals': all_animals, 'profile' : profile })
->>>>>>> master
 
 def get_animal_details(request, animal_id):
     one_animal = pf.animals(animal_id=animal_id)
@@ -117,7 +112,6 @@ class PlaydateDelete(DeleteView):
     model = Playdate
     success_url = '/playdates/'
     
-
 class PlaydateUpdate(UpdateView):
     model = Playdate
     fields = ['date', 'activity']

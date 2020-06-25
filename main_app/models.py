@@ -41,3 +41,6 @@ class Playdate(models.Model):
         default=ACTIVITIES[0][0]
     )
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+
+    def in_the_future(self):
+        return self.date >= date.today()

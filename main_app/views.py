@@ -106,7 +106,6 @@ def get_playdates(request):
 
 class PlaydateDelete(DeleteView):
     model = Playdate
-    fields = ['date', 'activity']
     success_url = '/playdates/'
 
 @register.filter

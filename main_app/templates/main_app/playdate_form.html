@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Edit Your Playdate with {{ object.animal_id }}:</h1>
+
+    <form action="" method="post">
+        <table>
+            {% csrf_token %}
+            {{ form.as_table }}
+        </table>
+        <input type="submit" class="btn" value="Submit Changes">
+    </form>
+    
+    <script>
+        var dateEl = document.getElementById('id_date');
+        M.Datepicker.init(dateEl, {
+            format: 'yyyy-mm-dd',
+            setDefaultDate: true,
+            defaultDate: new Date(),
+            autoClose: true
+        });
+    
+        var activityEl = document.getElementById('id_activity')
+        M.FormSelect.init(activityEl)
+    </script>
+
+{% endblock %}

@@ -2,7 +2,9 @@
 {% block content %}
 
 <h1>Animals near you</h1>
-
+{% if all_animals.animals|length == 0 %}
+    <h3>No {{ profile.pet_preference }} near you. Try changing your pet preferences or location.</h3>
+{% else %}
 <div class="row">
     {% for animal in all_animals.animals %}
       {% if animal.primary_photo_cropped.small %}
@@ -17,5 +19,6 @@
       {% endif %}
     {% endfor %}
   </div>
+{% endif %}
 
 {% endblock %}

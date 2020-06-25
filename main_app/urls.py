@@ -12,4 +12,5 @@ urlpatterns = [
     path('animals/<int:animal_id>/', views.get_animal_details, name='animal_details'),
     path('animals/<int:animal_id>/add_playdate/', views.add_playdate, name='add_playdate'),
     path('playdates/', views.get_playdates, name='playdate_index'),
+    path('playdates/<int:pk>/delete/', views.PlaydateDelete.as_view(), name='playdate_delete'),
 ]

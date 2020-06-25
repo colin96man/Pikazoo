@@ -78,3 +78,7 @@ def get_playdates(request):
     profile = Profile.objects.get(id=request.user.id)
     all_playdates = Playdate.objects.filter(profile=profile)
     return render(request, 'playdates/index.html', { 'all_playdates': all_playdates })
+
+class PlaydateDelete(DeleteView):
+    model = Playdate
+    success_url = '/playdates/'

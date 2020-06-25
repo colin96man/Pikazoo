@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<<<<<<< HEAD
 <h1>Your Playdates</h1>
 
 <h2>UPCOMING PLAYDATES</h2>
@@ -32,6 +33,27 @@
                 <p>Date: {{ playdate.date }}</p>
                 <a href="{% url 'playdate_update' playdate.id %}" class="btn">Edit</a>
                 <a href="{% url 'playdate_delete' playdate.id %}" class="btn">Cancel</a>
+=======
+<h2>Upcoming Playdates</h2>
+{% for playdate in all_playdates %}
+
+    <div class="card" id="playdatecard">
+        <div class="card-content">
+            <div class="imgdate">
+                <img src="{{ photos|get_item:playdate.id }}" class="playdateimg" alt="">
+                <p>{{ playdate.date }}</p>
+            </div>
+            <span class="card-title">{{ names|get_item:playdate.id }}</span>
+            <div class="playdateinfo">
+                <div>
+                    <p>{{ shelters|get_item:playdate.id }}</p>
+                    <p>Activity: {{ playdate.get_activity_display }}</p>
+                </div>
+                <div class="playdatebtns">
+                    <a href="{% url 'playdate_update' playdate.id %}" class="btn2">Edit</a>
+                    <a href="{% url 'playdate_delete' playdate.id %}" class="btn2">Cancel</a>
+                </div>
+>>>>>>> master
             </div>
         </div>
     {% endif %}

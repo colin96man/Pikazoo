@@ -112,10 +112,26 @@ class PlaydateDelete(DeleteView):
     model = Playdate
     success_url = '/playdates/'
     
+<<<<<<< HEAD
+=======
+
+    def get_context_data(self, **kwargs):
+      context = super().get_context_data(**kwargs)
+      animal = pf.animals(animal_id=context['object'].animal_id)
+      context['animal'] = animal['animals']
+      return context
+
+>>>>>>> master
 class PlaydateUpdate(UpdateView):
     model = Playdate
     fields = ['date', 'activity']
     success_url = '/playdates/'
+
+    def get_context_data(self, **kwargs):
+      context = super().get_context_data(**kwargs)
+      animal = pf.animals(animal_id=context['object'].animal_id)
+      context['animal'] = animal['animals']
+      return context
 
 @register.filter
 def get_item(photolist, photokey):

@@ -77,7 +77,18 @@ def add_playdate(request, animal_id):
 def get_playdates(request):
     profile = Profile.objects.get(id=request.user.id)
     all_playdates = Playdate.objects.filter(profile=profile)
-    return render(request, 'playdates/index.html', { 'all_playdates': all_playdates })
+    print(type(all_playdates))
+    def get_photo(all_playdates):
+        photos = []
+        for playdate in all_playdates:
+            animal = pf.animals(animal_id=f'{playdate.animal_id}')
+            photo = animal['animals']['primary_photo_cropped']['small']
+            photos.append({f'{playdate.id}': photo})
+        print(photos)
+        return photos
+    photos = get_photo(all_playdates)
+    print(type(all_playdates[0].id))
+    return render(request, 'playdates/index.html', { 'all_playdates': all_playdates, 'photos': photos })
 
 class PlaydateDelete(DeleteView):
     model = Playdate

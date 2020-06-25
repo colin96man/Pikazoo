@@ -7,6 +7,11 @@ body {
   background-color: #595A4A;
 }
 
+h2 {
+  display: flex;
+  justify-content: center;
+}
+
 nav{
   background-color: white;
   -webkit-box-shadow: none;
@@ -16,6 +21,7 @@ nav.scroll {
   background-color: #E39774;
   color: white;
 }
+
 nav ul a.scroll {
   color: white;
 }
@@ -130,6 +136,8 @@ div.card {
 
 #cardslide {
   height: 35%;
+  background-color: #595A4A;
+  color: white;
 }
 
 .aboutimg {
@@ -185,7 +193,6 @@ div.card {
   display: flex;
   padding: 7% 13% 0%;
   margin: 0 5%;
-}
 }
 
 .btn2:hover {

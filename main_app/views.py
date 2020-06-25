@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import UpdateView, DeleteView
+from django.template.defaulttags import register
 from .models import Profile, Playdate
 from .forms import PlaydateForm
 import os
@@ -77,19 +78,40 @@ def add_playdate(request, animal_id):
 def get_playdates(request):
     profile = Profile.objects.get(id=request.user.id)
     all_playdates = Playdate.objects.filter(profile=profile)
-    print(type(all_playdates))
     def get_photo(all_playdates):
         photos = []
         for playdate in all_playdates:
             animal = pf.animals(animal_id=f'{playdate.animal_id}')
             photo = animal['animals']['primary_photo_cropped']['small']
-            photos.append({f'{playdate.id}': photo})
-        print(photos)
+            photos.append({playdate.id: photo})
         return photos
     photos = get_photo(all_playdates)
-    print(type(all_playdates[0].id))
-    return render(request, 'playdates/index.html', { 'all_playdates': all_playdates, 'photos': photos })
+    def get_detail(all_playdates, detail):
+        values = []
+        for playdate in all_playdates:
+            animal = pf.animals(animal_id=f'{playdate.animal_id}')
+            one_detail = animal['animals'][f'{detail}']
+            values.append({playdate.id: one_detail})
+        return values
+    names = get_detail(all_playdates, 'name')
+    def get_shelter(all_playdates, detail):
+        values = []
+        for playdate in all_playdates:
+            organization = pf.organizations(organization_id=f'{playdate.shelter_id}')
+            one_detail = organization['organizations'][f'{detail}']
+            values.append({playdate.id: one_detail})
+        return values
+    shelters = get_shelter(all_playdates, 'name')
+    return render(request, 'playdates/index.html', { 'all_playdates': all_playdates, 'photos': photos, 'names': names, 'shelters': shelters })
 
 class PlaydateDelete(DeleteView):
     model = Playdate
     success_url = '/playdates/'
+
+@register.filter
+def get_item(photolist, photokey):
+    for photo in photolist:
+       for key, value in photo.items():
+           if key == photokey:
+             return value
+ 

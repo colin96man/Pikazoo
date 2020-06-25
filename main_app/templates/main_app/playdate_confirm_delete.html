@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <h1>Delete Item</h1>
+
+  <h4>Are you sure you want to cancel your playdate with {{ object.animal_id }}?</h4>
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Cancel playdate" class="btn">
+  </form>
+
+  <form action="{% url 'playdate_index' %}" method="get">
+    <input type="submit" value="Nevermind - back" class="btn"/>
+  </form>
+
+{% endblock %}

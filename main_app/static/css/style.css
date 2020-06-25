@@ -22,7 +22,16 @@ margin: auto;
 position: relative;
 width: 80%;
 text-align: center;
-margin-top: 80%;
+margin-top: 25%;
+}
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-top: 15%;
+}
+
+.logoimg {
+  max-width: 30%;
 }
 
 .btn {
@@ -163,7 +172,7 @@ div.card {
   width: 35%;
   display: inherit;
   justify-content: center;
-  margin-top: 41%;
+  margin-top: 20%;
 }
 
 }

@@ -3,16 +3,21 @@
 
 <h1>Your Playdates</h1>
 
+<h2>Upcoming Playdates</h2>
 {% for playdate in all_playdates %}
+
     <div class="card">
         <div class="card-content">
-            <span class="card-title">{{ playdate.animal_id }}</span>
-            <p>Shelter: {{ playdate.shelter_id }}</p>
+            <span class="card-title">{{ names|get_item:playdate.id }}</span>
+                 <img src="{{ photos|get_item:playdate.id }}" alt="">
+            <p>Shelter: {{ shelters|get_item:playdate.id }}</p>
             <p>Activity: {{ playdate.get_activity_display }}</p>
             <p>Date: {{ playdate.date }}</p>
+            <a href="{% url 'playdate_update' playdate.id %}" class="btn">Edit</a>
             <a href="{% url 'playdate_delete' playdate.id %}" class="btn">Cancel</a>
         </div>
     </div>
+
 {% endfor %}
 
 {% endblock %}

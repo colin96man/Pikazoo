@@ -5,18 +5,21 @@
 
 <div class="card">
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="{{ one_animal.animals.primary_photo_cropped.medium}}">
+      <img class="activator"  id="detailimg" src="{{ one_animal.animals.primary_photo_cropped.medium}}">
     </div>
     <div class="card-content" id="smallcard">
       <span class="card-title activator white-text text-darken-4">{{ one_animal.animals.name }}<i class="material-icons right">arrow_drop_up</i></span>
     </div>
-    <div class="card-reveal">
+    <div class="card-reveal" id="cardslide">
       <span class="card-title grey-text text-darken-4">{{ one_animal.animals.name }}<i class="material-icons right">arrow_drop_down</i></span>
-      <p>{{ one_animal.animals.bio }}</p>
+      <p>Age: {{ one_animal.animals.age }}</p>
+      <p>Breed: {{ one_animal.animals.breeds.primary }}</p>
+      <p>Status: {{ one_animal.animals.status }}</p>
+      <p>{{ one_animal.animals.description }}</p>
     </div>
   </div>
 
-<h6>Schedule a Playdate with {{ one_animal.animals.name }}:</h2>
+<h6>Schedule a Playdate with {{ one_animal.animals.name }}:</h6>
 
 <form action="{% url 'add_playdate' one_animal.animals.id %}" method="post">
     {% csrf_token %}

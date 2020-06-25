@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import UpdateView, DeleteView
 from django.template.defaulttags import register
+from django.contrib.auth.decorators import login_required
 from .models import Profile, Playdate
 from .forms import PlaydateForm
 import os
@@ -19,9 +20,9 @@ pf = Petfinder(key, secret)
 def home(request):
   return render(request, 'home.html')
 
+@login_required
 def about(request):
   profile = Profile.objects.get(id=request.user.id)
-  print(profile)
   return render(request, 'about.html', { 'profile': profile })
 
 def signup(request):
@@ -48,15 +49,22 @@ class ProfileUpdate(UpdateView):
     fields = ['location', 'pet_preference']
     success_url = '/animals/'
 
+@login_required
 def get_state_organizations(request):
     profile = Profile.objects.get(id=request.user.id)
     state_organizations = pf.organizations(state=f'{profile.location}')
     return render(request, 'rescues/index.html', { 'state_organizations': state_organizations })
 
+@login_required
 def get_some_animals(request):
     profile = Profile.objects.get(id=request.user.id)
+<<<<<<< HEAD
+    all_animals = pf.animals(animal_type=f'{profile.pet_preference}', status='adoptable', location=f'{profile.location}', sort='distance', distance=500, results_per_page=60)
+    return render(request, 'animals/index.html', { 'all_animals': all_animals })
+=======
     all_animals = pf.animals(animal_type=f'{profile.pet_preference}', status='adoptable', location=f'{profile.location}', sort='distance', distance=500, results_per_page=60)    
     return render(request, 'animals/index.html', { 'all_animals': all_animals, 'profile' : profile })
+>>>>>>> master
 
 def get_animal_details(request, animal_id):
     one_animal = pf.animals(animal_id=animal_id)
@@ -102,16 +110,30 @@ def get_playdates(request):
             values.append({playdate.id: one_detail})
         return values
     shelters = get_shelter(all_playdates, 'name')
-    return render(request, 'playdates/index.html', { 'all_playdates': all_playdates, 'photos': photos, 'names': names, 'shelters': shelters })
+    shelterlinks = get_shelter(all_playdates, 'website')
+    return render(request, 'playdates/index.html', { 'all_playdates': all_playdates, 'photos': photos, 'names': names, 'shelters': shelters, 'shelterlinks': shelterlinks })
 
 class PlaydateDelete(DeleteView):
     model = Playdate
     success_url = '/playdates/'
+    
+
+    def get_context_data(self, **kwargs):
+      context = super().get_context_data(**kwargs)
+      animal = pf.animals(animal_id=context['object'].animal_id)
+      context['animal'] = animal['animals']
+      return context
 
 class PlaydateUpdate(UpdateView):
     model = Playdate
     fields = ['date', 'activity']
     success_url = '/playdates/'
+
+    def get_context_data(self, **kwargs):
+      context = super().get_context_data(**kwargs)
+      animal = pf.animals(animal_id=context['object'].animal_id)
+      context['animal'] = animal['animals']
+      return context
 
 @register.filter
 def get_item(photolist, photokey):

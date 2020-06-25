@@ -37,7 +37,7 @@
                 <img src="{{ photos|get_item:playdate.id }}" class="playdateimg" alt="">
                 <p>{{ playdate.date }}</p>
             </div>
-            <span class="card-title">{{ names|get_item:playdate.id }}</span>
+            <h6 class="card-title">{{ names|get_item:playdate.id }}</h6>
             <div class="playdateinfo">
                 <div>
                     <p>Shelter: <a href=" {{ shelterlinks|get_item:playdate.id }}" target="_blank">{{ shelters|get_item:playdate.id }}</a></p>

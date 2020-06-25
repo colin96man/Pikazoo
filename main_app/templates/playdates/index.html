@@ -3,7 +3,7 @@
 
 <h1>Your Playdates</h1>
 
-<h2>UPCOMING PLAYDATES</h2>
+<h5>UPCOMING PLAYDATES</h5>
 {% for playdate in all_playdates %}
     {% if playdate.in_the_future %}
             <div class="card">
@@ -20,7 +20,7 @@
     {% endif %}
 {% endfor %}
     <hr>
-<h2>PAST PLAYDATES</h2>
+<h5>PAST PLAYDATES</h5>
 {% for playdate in all_playdates %}
     {% if playdate.in_the_future == False %}
         <div class="card">

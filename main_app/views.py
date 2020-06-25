@@ -12,6 +12,7 @@ import os
 import petpy
 from petpy import Petfinder
 
+
 key = os.environ['API_KEY']
 secret = os.environ['API_SECRET']
 pf = Petfinder(key, secret)

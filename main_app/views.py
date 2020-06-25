@@ -109,7 +109,13 @@ class PlaydateDelete(DeleteView):
     success_url = '/playdates/'
 
 class PlaydateUpdate(UpdateView):
-    
+    model = Playdate
+    fields = ['date', 'activity']
+    success_url = '/playdates/'
+
+    def get_name(self, animal_id):
+      animal = pf.animals(animal_id=animal_id)
+      return animal
 
 @register.filter
 def get_item(photolist, photokey):

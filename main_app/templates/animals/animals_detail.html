@@ -3,9 +3,18 @@
 
 <h1>Animal Details</h1>
 
-
-<img src="{{ one_animal.animals.primary_photo_cropped.medium}}" alt=""> <br>
-Name: {{ one_animal.animals.name }}
+<div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="{{ one_animal.animals.primary_photo_cropped.medium}}">
+    </div>
+    <div class="card-content" id="smallcard">
+      <span class="card-title activator white-text text-darken-4">{{ one_animal.animals.name }}<i class="material-icons right">arrow_drop_up</i></span>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">{{ one_animal.animals.name }}<i class="material-icons right">arrow_drop_down</i></span>
+      <p>{{ one_animal.animals.bio }}</p>
+    </div>
+  </div>
 
 <a href=""class="btn">Book A Playdate</a>
 

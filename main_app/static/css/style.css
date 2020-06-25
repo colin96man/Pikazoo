@@ -78,6 +78,12 @@ div.card {
   border-radius: 5%;
 }
 
+#smallcard {
+  background-color: #595A4A;
+  color: white;
+  border-radius: 0 0 10px 10px;
+}
+
 @media only screen and (min-width: 993px) {
 .homepageBtns {
   width: 35%;

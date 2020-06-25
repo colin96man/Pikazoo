@@ -15,8 +15,9 @@
 <body>
     <header class="navbar-fixed">
         <nav id="navbar">
-            <div class="nav-wrapper">
+            <div class="nav-wrapper" id="logonav">
                 <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <img src="https://imgur.com/I41DbVM.png" class="smlogo">
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{% url 'about' %}">About</a></li>
                     {% if user.is_authenticated %}

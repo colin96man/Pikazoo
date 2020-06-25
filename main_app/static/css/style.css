@@ -298,6 +298,27 @@ nav ul a:hover {
   color: white;
 }
 
+input[type=text]:not(.browser-default):focus:not([readonly]) {
+  border-bottom: 1px solid #E39774;
+  box-shadow: none;
+}
+
+input[type=password]:not(.browser-default):focus:not([readonly]) {
+  border-bottom: 1px solid #E39774;
+  box-shadow: none;
+}
+
+.smlogo {
+  max-width: 11%;
+  display: flex;
+  justify-content: end;
+}
+
+#logonav {
+  display: flex;
+  justify-content: space-between;
+}
+
 @media only screen and (min-width: 993px) {
 .homepageBtns {
   width: 35%;
@@ -308,5 +329,9 @@ nav ul a:hover {
 
 .logoimg {
   max-width: 40%;
+}
+
+.smlogo {
+  max-width: 6%;
 }
 }

@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<div class="homepageBtns">
-    <a href="{% url 'login' %}"class="btn">Log In</a>
-    <a href="{% url 'signup' %}"class="btn">Sign Up</a>
+<div class="color">
+    <div class="logo">
+        <img src="https://imgur.com/0Vh07sn.jpg" class="logoimg" alt="">
+    </div>
+    
+    <div class="homepageBtns">
+        <a href="{% url 'login' %}"class="btn">Log In</a>
+        <a href="{% url 'signup' %}"class="btn">Sign Up</a>
+    </div>
 </div>
 
 {% endblock %}

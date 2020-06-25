@@ -7,6 +7,24 @@ body {
   background-color: #595A4A;
 }
 
+.playdateform {
+  background-color: #595A4A;
+}
+
+h1 {
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+#id_date {
+  color: white;
+}
+
+.select-wrapper input.select-dropdown {
+  color: white;
+}
+
 h2 {
   display: flex;
   justify-content: center;
@@ -23,6 +41,11 @@ nav.scroll {
 }
 
 nav ul a.scroll {
+  color: white;
+}
+
+label {
+  font-size: 1rem;
   color: white;
 }
 
@@ -187,8 +210,8 @@ div.card {
 .btn2 {
   justify-content: center;
   border: #595A4A solid .3px;
-  background-color: white;
-  color: #595A4A;
+  background-color: #595A4A;
+  color: white;
   box-shadow: none;
   display: flex;
   padding: 7% 13% 0%;
@@ -196,9 +219,8 @@ div.card {
 }
 
 .btn2:hover {
-  background-color: #595A4A;
-  color: white;
-  border: #595A4A;
+  background-color: white;
+  color: #595A4A;
 }
 
 .datepicker-date-display {
@@ -248,11 +270,32 @@ nav ul a:hover {
 
 #btn3 {
   margin: 5% auto;
+  background-color: white;
+  color: #595A4A;
 }
 
 .card{
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+
+.dropdown-content {
+  background-color: #fff;
+  margin: 0;
+  display: none;
+  min-width: 100px;
+  overflow-y: auto;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+#id_location {
+  color: white;
 }
 
 @media only screen and (min-width: 993px) {

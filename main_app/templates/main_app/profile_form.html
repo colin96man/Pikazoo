@@ -1,21 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
-
-{% if object %}
-<h1>Edit <span>{{object.user.username}}</span></h1>
-{% else %}
-    <h3>Set up your profile</h3>
-{% endif %}
-<form action="" method="post">
-    <table>
-    {% csrf_token %}
-    {{ form.as_table }}
-    </table>
-    <input type="submit" value="Update" class="btn" id="btn3">
-</form>
-<script>
-    document.getElementById('id_location').style.display = 'block';
-    document.getElementById('id_pet_preference').style.display = 'block';
-</script>
+<body class="playdateform">
+    {% if object %}
+    <h1>Edit<span>  {{object.user.username}}</span></h1>
+    {% else %}
+        <h3>Set up your profile</h3>
+    {% endif %}
+    <form action="" method="post">
+        <table>
+        {% csrf_token %}
+        {{ form.as_table }}
+        </table>
+        <input type="submit" value="Update" class="btn" id="btn3">
+    </form>
+    <script>
+        document.getElementById('id_location').style.display = 'block';
+        document.getElementById('id_pet_preference').style.display = 'block';
+    </script>
+</body>
 
 {% endblock %}

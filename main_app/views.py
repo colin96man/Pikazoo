@@ -21,7 +21,6 @@ def home(request):
 
 def about(request):
   profile = Profile.objects.get(id=request.user.id)
-  print(profile)
   return render(request, 'about.html', { 'profile': profile })
 
 def signup(request):

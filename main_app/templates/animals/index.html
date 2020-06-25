@@ -5,14 +5,16 @@
 
 <div class="row">
     {% for animal in all_animals.animals %}
-    <div class="col s6 m4 m2">
-      <div class="card">
-        <div class="card-image">
-            <a href="{% url 'animal_details' animal.id %}">
-            <img src="{{ animal.primary_photo_cropped.small }}" alt="" class="indeximg"></a>
+      {% if animal.primary_photo_cropped.small %}
+      <div class="col s6 m4 m2">
+        <div class="card">
+          <div class="card-image">
+              <a href="{% url 'animal_details' animal.id %}">
+              <img src="{{ animal.primary_photo_cropped.small }}" alt="" class="indeximg"></a>
+          </div>
         </div>
       </div>
-    </div>
+      {% endif %}
     {% endfor %}
   </div>
 

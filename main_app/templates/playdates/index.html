@@ -10,6 +10,7 @@
             <p>Shelter: {{ playdate.shelter_id }}</p>
             <p>Activity: {{ playdate.get_activity_display }}</p>
             <p>Date: {{ playdate.date }}</p>
+            <a href="{% url 'playdate_delete' playdate.id %}" class="btn">Cancel</a>
         </div>
     </div>
 {% endfor %}

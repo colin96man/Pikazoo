@@ -82,3 +82,7 @@ def get_playdates(request):
 class PlaydateDelete(DeleteView):
     model = Playdate
     success_url = '/playdates/'
+
+class PlaydateUpdate(UpdateView):
+    model = Playdate
+    fields = ['date', 'activity']

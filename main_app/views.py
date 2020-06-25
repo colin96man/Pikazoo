@@ -106,6 +106,7 @@ def get_playdates(request):
 
 class PlaydateDelete(DeleteView):
     model = Playdate
+    fields = ['date', 'activity']
     success_url = '/playdates/'
 
 @register.filter
@@ -114,4 +115,4 @@ def get_item(photolist, photokey):
        for key, value in photo.items():
            if key == photokey:
              return value
- 
+  

@@ -112,8 +112,6 @@ class PlaydateDelete(DeleteView):
     model = Playdate
     success_url = '/playdates/'
     
-<<<<<<< HEAD
-=======
 
     def get_context_data(self, **kwargs):
       context = super().get_context_data(**kwargs)
@@ -121,7 +119,6 @@ class PlaydateDelete(DeleteView):
       context['animal'] = animal['animals']
       return context
 
->>>>>>> master
 class PlaydateUpdate(UpdateView):
     model = Playdate
     fields = ['date', 'activity']

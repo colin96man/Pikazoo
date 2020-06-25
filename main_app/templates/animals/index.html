@@ -5,7 +5,9 @@
 
 <ul>
     {% for animal in all_animals.animals %}
+        {% if animal.primary_photo_cropped.small %}
         <li><a href="{% url 'animal_details' animal.id %}"><img src="{{ animal.primary_photo_cropped.small }}" alt=""></a>{{ animal.name }}, {{ animal.contact.address.city }}</li>
+        {% endif %}
     {% endfor %}
 </ul>
 

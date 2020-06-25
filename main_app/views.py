@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import UpdateView, DeleteView
 from .models import Profile, Playdate
+from .forms import PlaydateForm
 import os
 import petpy
 from petpy import Petfinder
@@ -63,4 +64,18 @@ def get_some_animals(request):
 
 def get_animal_details(request, animal_id):
     one_animal = pf.animals(animal_id=animal_id)
-    return render(request, 'animals/animals_detail.html', { 'one_animal': one_animal })
+    print(one_animal)
+    playdate_form = PlaydateForm()
+    return render(request, 'animals/animals_detail.html', { 'one_animal': one_animal, 'playdate_form': playdate_form })
+
+def add_playdate(request, animal_id):
+  profile = Profile.objects.get(id=request.user.id)
+  form = PlaydateForm(request.POST)
+  animal = pf.animals(animal_id=f'{animal_id}')
+  if form.is_valid():
+    new_playdate = form.save(commit=False)
+    new_playdate.animal_id = animal_id
+    new_playdate.shelter_id = animal['animals']['organization_id']
+    new_playdate.profile = profile
+    new_playdate.save()
+  return redirect('animal_details', animal_id=animal_id)

@@ -34,7 +34,7 @@
     <li><a href="{% url 'about' %}">About</a></li>
     {% if user.is_authenticated %}
     <li><a href="{% url 'profile_update' user.id %}">Profile</a></li>
-    <li><a href="{% url 'index' %}">Rescues</a></li>
+    <li><a href="{% url 'index' %}">Animals</a></li>
     <li><a href="{% url 'logout' %}">Log Out</a></li>
     {% else %}
     <li><a href="{% url 'signup' %}">Sign Up</a></li>

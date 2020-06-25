@@ -16,14 +16,22 @@ nav{
   color: white;
 }
 
-
 .homepageBtns {
 display: block;
 margin: auto;
 position: relative;
 width: 80%;
 text-align: center;
-margin-top: 80%;
+margin-top: 25%;
+}
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-top: 15%;
+}
+
+.logoimg {
+  max-width: 30%;
 }
 
 .btn {
@@ -35,6 +43,7 @@ margin-top: 80%;
   color: #595A4A;
   box-shadow: none;
 }
+
 .btn:hover {
   background-color: #595A4A;
   color: white;
@@ -81,9 +90,11 @@ footer.page-footer {
 div.card {
   border-radius: 5px;
 }
+
 .card .card-image img {
   border-radius: 5px;
 }
+
 #detailimg {
   border-radius: 5px 5px 0 0;
 }
@@ -93,9 +104,11 @@ div.card {
   color: white;
   border-radius: 0 0 5px 5px;
 }
+
 #slidecolor{
   background-color: white;
 }
+
 #cardslide {
   height: 35%;
 }
@@ -103,18 +116,55 @@ div.card {
 .aboutimg {
   opacity: 45%;
 }
+
 #aboutslide {
   margin-top: 20%;
 }
+
 #caption1 {
   color: #595A4A;
 }
+
 #caption2 {
   color: #595A4A;
-  ;
 }
+
 #caption3 {
   color: #595A4A;
+}
+
+.imgdate {
+  display: flex;
+  justify-content: space-between;
+}
+
+#playdatecard {
+  border: solid 2px #595A4A;
+}
+
+.playdatebtns{
+  display: flex;
+}
+
+.playdateimg {
+  width: 25%;
+}
+
+.playdateinfo{
+  display: flex;
+  justify-content: space-between;
+  padding-right: 5%;
+}
+
+.btn2 {
+  justify-content: center;
+  border: #595A4A solid .3px;
+  background-color: white;
+  color: #595A4A;
+  box-shadow: none;
+  display: flex;
+  padding: 10%;
+  margin: 0 5%;
 }
 
 @media only screen and (min-width: 993px) {
@@ -122,7 +172,7 @@ div.card {
   width: 35%;
   display: inherit;
   justify-content: center;
-  margin-top: 41%;
+  margin-top: 20%;
 }
 
 }

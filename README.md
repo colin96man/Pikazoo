@@ -2,6 +2,13 @@
 
 ## Screenshots
 
+![Imgur](https://i.imgur.com/h23F8c6.png)
+![Imgur](https://i.imgur.com/EIkRBPX.png)
+![Imgur](https://i.imgur.com/9oIlWNF.png)
+![Imgur](https://i.imgur.com/PEm2loY.png)
+![Imgur](https://i.imgur.com/SntwumY.png)
+![Imgur](https://i.imgur.com/QJxsv5Y.png)
+![Imgur](https://i.imgur.com/JfCIlEA.png)
 
 
 ## Technologies Used

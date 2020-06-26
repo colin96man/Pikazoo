@@ -12,6 +12,7 @@ import os
 import petpy
 from petpy import Petfinder
 
+
 key = os.environ['API_KEY']
 secret = os.environ['API_SECRET']
 pf = Petfinder(key, secret)
@@ -78,35 +79,58 @@ def add_playdate(request, animal_id):
     new_playdate.save()
   return redirect('animal_details', animal_id=animal_id)
 
-def get_playdates(request):
-    profile = Profile.objects.get(id=request.user.id)
-    all_playdates = Playdate.objects.filter(profile=profile)
-    def get_photo(all_playdates):
+def get_photo(all_playdates):
         photos = []
         for playdate in all_playdates:
+          try:
             animal = pf.animals(animal_id=f'{playdate.animal_id}')
             photo = animal['animals']['primary_photo_cropped']['small']
             photos.append({playdate.id: photo})
+          except: 
+            photos.append({'none'})
         return photos
-    photos = get_photo(all_playdates)
-    def get_detail(all_playdates, detail):
-        values = []
+
+def get_detail(all_playdates, detail):
+    values = []
+    for playdate in all_playdates:
+      try:
+        animal = pf.animals(animal_id=f'{playdate.animal_id}')
+        one_detail = animal['animals'][f'{detail}']
+        values.append({playdate.id: one_detail})
+      except:
+        values.append({'none'})
+    return values
+    
+def get_shelter(all_playdates, detail):
+    values = []
+    for playdate in all_playdates:
+      try:
+        organization = pf.organizations(organization_id=f'{playdate.shelter_id}')
+        one_detail = organization['organizations'][f'{detail}']
+        values.append({playdate.id: one_detail})
+      except:
+        values.append({'none'})
+    return values
+
+def get_playdates(request):
+    profile = Profile.objects.get(id=request.user.id)
+    all_playdates = Playdate.objects.filter(profile=profile)
+    def get_animals(all_playdates):
+        animals = []
         for playdate in all_playdates:
+          try:
             animal = pf.animals(animal_id=f'{playdate.animal_id}')
-            one_detail = animal['animals'][f'{detail}']
-            values.append({playdate.id: one_detail})
-        return values
+            animals.append({playdate.id: 'true'})
+          except:
+            animals.append({playdate.id: 'false'})
+        return animals
+    animals = get_animals(all_playdates)
+    print(animals)
     names = get_detail(all_playdates, 'name')
-    def get_shelter(all_playdates, detail):
-        values = []
-        for playdate in all_playdates:
-            organization = pf.organizations(organization_id=f'{playdate.shelter_id}')
-            one_detail = organization['organizations'][f'{detail}']
-            values.append({playdate.id: one_detail})
-        return values
+    photos = get_photo(all_playdates)
     shelters = get_shelter(all_playdates, 'name')
     shelterlinks = get_shelter(all_playdates, 'website')
-    return render(request, 'playdates/index.html', { 'all_playdates': all_playdates, 'photos': photos, 'names': names, 'shelters': shelters, 'shelterlinks': shelterlinks })
+    return render(request, 'playdates/index.html', { 'all_playdates': all_playdates, 'photos': photos, 'names': names, 'shelters': shelters, 'shelterlinks': shelterlinks, 'animals': animals })
 
 class PlaydateDelete(DeleteView):
     model = Playdate
@@ -130,9 +154,13 @@ class PlaydateUpdate(UpdateView):
       return context
 
 @register.filter
-def get_item(photolist, photokey):
-    for photo in photolist:
-       for key, value in photo.items():
-           if key == photokey:
-             return value
+def get_item(detaillist, detailkey):
+    for detail in detaillist:
+       try:
+         for key, value in detail.items():
+             if key == detailkey:
+               return value
+       except:
+         return 'Resource does not exist'
+        
   

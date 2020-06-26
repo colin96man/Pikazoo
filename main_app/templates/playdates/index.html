@@ -4,49 +4,58 @@
 <h2>UPCOMING PLAYDATES</h2>
 {% for playdate in all_playdates %}
     {% if playdate.in_the_future %}
-        <div class="card" id="playdatecard">
-          <div class="card-content">
-                <div class="imgdate">
-                    <img src="{{ photos|get_item:playdate.id }}" class="playdateimg" alt="">
-                    <p>{{ playdate.date }}</p>
-                </div>
-                <span class="card-title">{{ names|get_item:playdate.id }}</span>
-                <div class="playdateinfo">
-                    <div>
-                        <p>Shelter: <a href=" {{ shelterlinks|get_item:playdate.id }}" target="_blank">{{ shelters|get_item:playdate.id }}</a></p>
-                        <p>Activity: {{ playdate.get_activity_display }}</p>
+        {% if animals|get_item:playdate.id == 'true' %}
+            {% if photos|get_item:playdate.id != 'Resource does not exist' %}   
+            <div class="card" id="playdatecard">
+                <div class="card-content">
+                    <div class="imgdate">
+                        <img src="{{ photos|get_item:playdate.id }}" class="playdateimg" alt="">
+                        <p>{{ playdate.date }}</p>
                     </div>
-                    <div class="playdatebtns">
-                        <a href="{% url 'playdate_update' playdate.id %}" class="btn2">Edit</a>
-                        <a href="{% url 'playdate_delete' playdate.id %}" class="btn2">Cancel</a>
-                    </div>
-                </div>
-          </div>
-        </div>
-    {% endif %}
-{% endfor %}
-    <hr>
-<h2>PAST PLAYDATES</h2>
-{% for playdate in all_playdates %}
-    {% if playdate.in_the_future == False %}
-      <div class="card" id="playdatecard">
-            <div class="card-content">
-                <div class="imgdate">
-                    <img src="{{ photos|get_item:playdate.id }}" class="playdateimg" alt="">
-                    <p>{{ playdate.date }}</p>
-                </div>
-                <span class="card-title">{{ names|get_item:playdate.id }}</span>
-                <div class="playdateinfo">
-                    <div>
-                        <p>Shelter: <a href=" {{ shelterlinks|get_item:playdate.id }}" target="_blank">{{ shelters|get_item:playdate.id }}</a></p>
-                        <p>Activity: {{ playdate.get_activity_display }}</p>
-                    </div>
-                    <div class="thankyou">
-                        <i class="material-icons">favorite</i><p>Thank you for being my friend!</p>
+                    <span class="card-title">{{ names|get_item:playdate.id }}</span>
+                    <div class="playdateinfo">
+                        <div>
+                            <p>Shelter: <a href=" {{ shelterlinks|get_item:playdate.id }}" target="_blank">{{ shelters|get_item:playdate.id }}</a></p>
+                            <p>Activity: {{ playdate.get_activity_display }}</p>
+                        </div>
+                        <div class="playdatebtns">
+                            <a href="{% url 'playdate_update' playdate.id %}" class="btn2">Edit</a>
+                            <a href="{% url 'playdate_delete' playdate.id %}" class="btn2">Cancel</a>
+                        </div>
                     </div>
                 </div>
             </div>
-      </div>
+            {% endif %}
+        {% endif %}
     {% endif %}
 {% endfor %}
+    <hr>
+<h5>PAST PLAYDATES</h5>
+{% for playdate in all_playdates %}
+    {% if playdate.in_the_future == False %}
+        {% if animals|get_item:playdate.id == 'true' %}
+            {% if photos|get_item:playdate.id != 'Resource does not exist' %} 
+              <div class="card" id="playdatecard">
+                    <div class="card-content">
+                        <div class="imgdate">
+                            <img src="{{ photos|get_item:playdate.id }}" class="playdateimg" alt="">
+                            <p>{{ playdate.date }}</p>
+                        </div>
+                        <span class="card-title">{{ names|get_item:playdate.id }}</span>
+                        <div class="playdateinfo">
+                            <div>
+                                <p>Shelter: <a href=" {{ shelterlinks|get_item:playdate.id }}" target="_blank">{{ shelters|get_item:playdate.id }}</a></p>
+                                <p>Activity: {{ playdate.get_activity_display }}</p>
+                            </div>
+                            <div class="thankyou">
+                                <i class="material-icons">favorite</i><p>Thank you for being my friend!</p>
+                            </div>
+                         </div>
+                      </div>
+                </div>                      
+              {% endif %}
+          {% endif %}
+    {% endif %}
+{% endfor %}
+
 {% endblock %}

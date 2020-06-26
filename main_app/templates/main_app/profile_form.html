@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
+
 <body class="playdateform">
     {% if object %}
-    <h1>Edit<span>  {{object.user.username}}</span></h1>
+    <h1>Edit<span>{{object.user.username}}</span></h1>
     {% else %}
         <h3>Set up your profile</h3>
     {% endif %}

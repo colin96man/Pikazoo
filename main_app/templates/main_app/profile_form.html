@@ -14,12 +14,6 @@
     <input type="submit" value="Update" class="btn" id="btn3">
 </form>
 
-<form action="" method="post">
-    {% csrf_token %}
-    {{ change_avatar.as_p }}
-    <input type="submit" class="btn" value="Upload profile photo">
-</form>
-
 <script>
     document.getElementById('id_location').style.display = 'block';
     document.getElementById('id_pet_preference').style.display = 'block';

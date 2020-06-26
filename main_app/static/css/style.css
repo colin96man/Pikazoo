@@ -136,10 +136,14 @@ div.card {
   border-radius: 5px;
 }
 
+#detailimg2 {
+  width: 648px;
+  height: 601px;
+}
+
 .card .card-image img {
   border-radius: 5px;
-  width: 648px;
-  height: 601px;}
+}
 
 #detailimg {
   border-radius: 5px 5px 0 0;

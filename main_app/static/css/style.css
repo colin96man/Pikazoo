@@ -8,21 +8,18 @@ body {
 }
 
 .playdateform {
-  background-color: #595A4A;
+  background-color: white;
 }
 
 h1 {
-  color: white;
+  color: #595A4A;
   display: flex;
   justify-content: center;
 }
 
-#id_date {
-  color: white;
-}
-
-.select-wrapper input.select-dropdown {
-  color: white;
+.dropdown-content li>a, .dropdown-content li>span {
+  font-size: 16px;
+  color: #595A4A;
 }
 
 h2 {
@@ -46,7 +43,7 @@ nav ul a.scroll {
 
 label {
   font-size: 1rem;
-  color: white;
+  color: #E39774;
 }
 
 .sidenav {
@@ -84,7 +81,7 @@ label {
 
 .btn {
   display: flex;
-  margin: 20px;
+  margin: 20px auto;
   justify-content: center;
   border: #595A4A solid .3px;
   background-color: white;
@@ -194,6 +191,7 @@ div.card {
 
 .playdatebtns{
   display: flex;
+  max-height: 43px;
 }
 
 .playdateimg {
@@ -294,8 +292,9 @@ nav ul a:hover {
   transform-origin: 0 0;
 }
 
-#id_location {
-  color: white;
+
+#id_activity {
+  color: #595A4A;
 }
 
 input[type=text]:not(.browser-default):focus:not([readonly]) {
@@ -318,6 +317,11 @@ input[type=password]:not(.browser-default):focus:not([readonly]) {
   display: flex;
   justify-content: space-between;
 }
+
+#id_date {
+  color: #595A4A;
+}
+
 
 @media only screen and (min-width: 993px) {
 .homepageBtns {

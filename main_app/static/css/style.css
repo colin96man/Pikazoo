@@ -136,6 +136,11 @@ div.card {
   border-radius: 5px;
 }
 
+#detailimg2 {
+  width: 648px;
+  height: 601px;
+}
+
 .card .card-image img {
   border-radius: 5px;
 }
@@ -329,6 +334,10 @@ input[type=password]:not(.browser-default):focus:not([readonly]) {
   display: inherit;
   justify-content: center;
   margin-top: 5%;
+}
+
+.container {
+  width: 67%;
 }
 
 .logoimg {

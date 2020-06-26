@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Your Playdates</h1>
-
 <h2>UPCOMING PLAYDATES</h2>
 {% for playdate in all_playdates %}
     {% if playdate.in_the_future %}
@@ -43,8 +41,8 @@
                         <p>Shelter: <a href=" {{ shelterlinks|get_item:playdate.id }}" target="_blank">{{ shelters|get_item:playdate.id }}</a></p>
                         <p>Activity: {{ playdate.get_activity_display }}</p>
                     </div>
-                    <div class="playdatebtns">
-                        <p>Thank you for being my friend!</p>
+                    <div class="thankyou">
+                        <i class="material-icons">favorite</i><p>Thank you for being my friend!</p>
                     </div>
                 </div>
             </div>

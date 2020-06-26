@@ -136,11 +136,6 @@ div.card {
   border-radius: 5px;
 }
 
-#detailimg2 {
-  width: 648px;
-  height: 601px;
-}
-
 .card .card-image img {
   border-radius: 5px;
 }
@@ -347,4 +342,9 @@ input[type=password]:not(.browser-default):focus:not([readonly]) {
 .smlogo {
   max-width: 6%;
 }
+
+#detailimg2 {
+  height: 565px;
+}
+
 }

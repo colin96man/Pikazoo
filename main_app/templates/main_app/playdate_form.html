@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-
+<body class="playdateform">
 <h1>Edit Your Playdate with {{ animal.name }}:</h1>
 
     <form action="" method="post">
-        <table>
+        <table class="playdate">
             {% csrf_token %}
             {{ form.as_table }}
         </table>
@@ -23,5 +23,6 @@
         var activityEl = document.getElementById('id_activity')
         M.FormSelect.init(activityEl)
     </script>
+</body>
 
 {% endblock %}

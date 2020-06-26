@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Animals near you</h1>
+<h2>Animals near you</h2>
 {% if all_animals.animals|length == 0 %}
     <h3>No {{ profile.pet_preference }} near you. Try changing your pet preferences or location.</h3>
 {% else %}

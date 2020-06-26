@@ -28,7 +28,7 @@
 5. After scheduling a playdate, click on Playdates in the navigation bar to see all of your playdates! 
 6. From the playdates page, you can edit or cancel your individual upcoming playdates.
 
-Start making new (non-human) friends [here!](https://pikazoo.herokuapp.com/)
+Start making new (non-human) friends <a href="https://pikazoo.herokuapp.com/" target="_blank">here!</a>
 
 ## Next Steps
 * AAU, be able to "favorite" cetain animals so they appear at the top of the user's animals list.

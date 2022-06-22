@@ -17,7 +17,7 @@ isort==4.3.21
 jmespath==0.10.0
 lazy-object-proxy==1.4.3
 mccabe==0.6.1
-numpy==1.18.5
+numpy==1.22.0
 pandas==1.0.5
 petpy==2.1.2
 psycopg2==2.8.5
